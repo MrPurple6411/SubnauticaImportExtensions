@@ -1,12 +1,16 @@
 {
-  "name": "subnautica-import-extensions",
+  "name": "com.mrpurple6411.subnauticaimportextensions",
+  "version": "1.0.0",
+  "displayName": "Subnautica Import Extensions",
+  "description": "Import extensions for ThunderKit to stabilize and complete the Subnautica import process",
+  "unity": "2019.4",
+  "release": "36f1",
   "author": {
     "name": "MrPurple6411",
     "email": "mrpurple6411@gmail.com",
     "url": "https://github.com/MrPurple6411/SubnauticaImportExtensions"
   },
-  "displayName": "Subnautica Import Extensions",
-  "version": "1.0.0",
-  "unity": "2019.4.36",
-  "description": "Import extensions for ThunderKit to stabilize and complete the Subnautica import process"
+  "dependencies": {
+    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git"
+  }
 }
