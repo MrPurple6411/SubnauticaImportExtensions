@@ -17,7 +17,7 @@
 
         public static class Paths
         {
-            public const string NStripExePath = "Packages/riskofthunder-ror2importextensions/Binary/NStrip/NStrip.exe";
+            public const string NStripExePath = "Packages/com.mrpurple6411.subnauticaimportextensions/Binary/NStrip/NStrip.exe";
             public static string PublicizedAssembliesFolder
             {
                 get
