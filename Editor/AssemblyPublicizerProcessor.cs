@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using ThunderKit.Core.Config;
-using ThunderKit.Core.Data;
-using UnityEditor;
-using Debug = UnityEngine.Debug;
-using UObject = UnityEngine.Object;
-
-namespace RiskOfThunder.RoR2Importer
+﻿namespace Subnautica.Importer
 {
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Linq;
+    using ThunderKit.Core.Config;
+    using ThunderKit.Core.Data;
+    using UnityEditor;
+    using Debug = UnityEngine.Debug;
+    using UObject = UnityEngine.Object;
+
     public class AssemblyPublicizerProcessor : AssemblyProcessor
     {
         public override int Priority => 400;
@@ -34,7 +34,7 @@ namespace RiskOfThunder.RoR2Importer
                 return assemblyPath;
             }
 
-            string ror2ManagedDir = ThunderKitSetting.GetOrCreateSettings<ThunderKitSettings>().ManagedAssembliesPath;
+            string managedDir = ThunderKitSetting.GetOrCreateSettings<ThunderKitSettings>().ManagedAssembliesPath;
 
             if (!Directory.Exists(Constants.Paths.PublicizedAssembliesFolder))
             {
@@ -47,7 +47,7 @@ namespace RiskOfThunder.RoR2Importer
             {
                 "-p",
                 "-n",
-                "-d", ror2ManagedDir,
+                "-d", managedDir,
                 "-cg",
                 "--cg-exclude-events",
                 "--remove-readonly",

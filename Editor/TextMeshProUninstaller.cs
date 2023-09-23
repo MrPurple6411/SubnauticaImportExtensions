@@ -1,7 +1,7 @@
-using ThunderKit.Core.Config.Common;
-
-namespace RiskOfThunder.RoR2Importer
+namespace Subnautica.Importer
 {
+    using ThunderKit.Core.Config.Common;
+
     public class TextMeshProUninstaller : UnityPackageUninstaller
     {
         public override string Name => "TextMeshPro Uninstaller";

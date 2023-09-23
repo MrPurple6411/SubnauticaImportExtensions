@@ -1,7 +1,7 @@
-﻿using ThunderKit.Integrations.Thunderstore;
-
-namespace RiskOfThunder.RoR2Importer
+﻿namespace Subnautica.Importer
 {
+    using ThunderKit.Integrations.Thunderstore;
+
     public class InstallBepInEx : ThunderstorePackageInstaller
     {
         public override int Priority => Constants.Priority.InstallBepInEx;

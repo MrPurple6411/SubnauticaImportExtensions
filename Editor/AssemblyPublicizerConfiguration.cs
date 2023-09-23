@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using ThunderKit.Core.Config;
-using ThunderKit.Core.Data;
-using ThunderKit.Markdown;
-using UnityEditor;
-using UnityEditor.UIElements;
-using UnityEngine.UIElements;
-
-namespace RiskOfThunder.RoR2Importer
+﻿namespace Subnautica.Importer
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using ThunderKit.Core.Config;
+    using ThunderKit.Core.Data;
+    using ThunderKit.Markdown;
+    using UnityEditor;
+    using UnityEditor.UIElements;
+    using UnityEngine.UIElements;
     using static ThunderKit.Common.Constants;
+
     public class AssemblyPublicizerConfiguration : OptionalExecutor
     {
         public override string Name => "Assembly Publicizer";
@@ -18,7 +18,7 @@ namespace RiskOfThunder.RoR2Importer
             "\nPublicized assemblies retain their inspector look and functionality, this does not strip assemblies.";
         public override int Priority => Constants.Priority.AssemblyPublicizerConfiguration;
 
-        public List<string> assemblyNames = new List<string> { "RoR2.dll", "KinematicCharacterController.dll" };
+        public List<string> assemblyNames = new List<string> { "Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll" };
 
         public UnityEngine.Object NStripExecutable;
 

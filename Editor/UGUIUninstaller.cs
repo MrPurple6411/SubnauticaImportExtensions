@@ -1,7 +1,7 @@
-﻿using ThunderKit.Core.Config.Common;
-
-namespace RiskOfThunder.RoR2Importer
+﻿namespace Subnautica.Importer
 {
+    using ThunderKit.Core.Config.Common;
+
     public class UGUIUninstaller : UnityPackageUninstaller
     {
         public override string Name => "Unity GUI Uninstaller";

@@ -1,5 +1,7 @@
 MIT License
 
+Copyright (c) 2023 MrPurple6411
+
 Copyright (c) 2022 Risk of Thunder
 
 Copyright (c) 2022 James LaPenn

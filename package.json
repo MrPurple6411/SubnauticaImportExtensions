@@ -1,12 +1,12 @@
 {
-  "name": "riskofthunder-ror2importextensions",
+  "name": "subnautica-import-extensions",
   "author": {
-    "name": "RiskOfThunder",
-    "email": "",
-    "url": ""
+    "name": "MrPurple6411",
+    "email": "mrpurple6411@gmail.com",
+    "url": "https://github.com/MrPurple6411/SubnauticaImportExtensions"
   },
-  "displayName": "RoR2 Import Extensions",
-  "version": "1.3.7",
-  "unity": "2019.4",
-  "description": "Import extensions for ThunderKit to stabilize and complete the RoR2 import process"
+  "displayName": "Subnautica Import Extensions",
+  "version": "1.0.0",
+  "unity": "2019.4.36",
+  "description": "Import extensions for ThunderKit to stabilize and complete the Subnautica import process"
 }
