@@ -47,40 +47,48 @@
             {
                 "-p",
                 "-n",
-                "-d", managedDir,
+                "-d", $"\"{managedDir}\"",
                 "-cg",
                 "--cg-exclude-events",
+                "-t ValueRet",
                 "--remove-readonly",
                 "--unity-non-serialized",
-                assemblyPath,
-                outputPath
+                $"\"{assemblyPath}\"",
+                $"\"{outputPath}\""
             };
 
-            List<string> log = new List<string> { $"Publicized {assemblyFileName} with the following arguments:" };
-            log.AddRange(StripAssembly(arguments, nstripPath));
-            Debug.Log(string.Join("\n", log));
-
+            List<string> log = new List<string> {  };
+            if (!StripAssembly(arguments, nstripPath, assemblyFileName))
+            {
+                Debug.LogError($"Failed to publicize {assemblyFileName} with arguments: \n{string.Join(" ", arguments)}");
+                return assemblyPath;
+            }
+            
             return outputPath;
         }
 
-        private List<string> StripAssembly(List<string> arguments, string nstripPath)
+        private bool StripAssembly(List<string> arguments, string nstripPath, string assemblyFileName)
         {
-            var logger = new List<string>();
-            for (int i = 0; i < arguments.Count; i++)
-            {
-                logger.Add($"Argument {i}: {arguments[i]}");
-            }
-
             ProcessStartInfo psi = new ProcessStartInfo(nstripPath)
             {
                 WorkingDirectory = Path.GetDirectoryName(nstripPath),
+                Arguments = string.Join(" ", arguments),
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
             };
 
-            psi.Arguments = string.Join(" ", arguments.Select(arg => $"\"{arg}\""));
+            Debug.Log($"Publicizing {assemblyFileName} with the following arguments:\n{psi.Arguments}");
 
             var process = System.Diagnostics.Process.Start(psi);
-            process.WaitForExit(5000);
-            return logger;
+            process.OutputDataReceived += (sender, args) => Debug.Log(args.Data);
+            process.ErrorDataReceived += (sender, args) => Debug.LogError(args.Data);
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
+            process.WaitForExit();
+
+            return process.ExitCode == 0;
         }
     }
 }
